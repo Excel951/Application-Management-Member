@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -52,7 +53,7 @@ public class ContactHandler extends SQLiteOpenHelper {
 
         db.insert(DICTIONARY_TABLE_NAME, null, values);     // masukkan data yang telah
                                                                         // dimasukkan ke values ke dalam database
-
+        Log.d("TAGGGGGGG", "addContact: BERHASILL");
         db.close();         // tutup database
     }
 

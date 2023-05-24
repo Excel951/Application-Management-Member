@@ -47,7 +47,12 @@ public class addMember extends AppCompatActivity {
                 String name = editTextAddName.getText().toString();
                 String telephoneNum = editTextAddNum.getText().toString();
 
-                contactHandler.addContact(new Contact(name, telephoneNum));
+                Intent intent = new Intent(addMember.this, MainActivity.class);
+                intent.putExtra("nama", name);
+                intent.putExtra("noTelp", telephoneNum);
+                startActivity(intent);
+                finish();
+//                contactHandler.addContact(new Contact(name, telephoneNum));
 
 //                for (Contact contact : contactArrayList) {
 //                    String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp();

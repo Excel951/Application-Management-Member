@@ -48,22 +48,36 @@ public class MainActivity extends AppCompatActivity {
         clickBtnAddMember();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+////        contactArrayList = contactHandler.getAllContacts();
+//        String name = String.valueOf(getIntent().getSerializableExtra("nama"));
+//        String notelp = String.valueOf(getIntent().getSerializableExtra("noTelp"));
+//
+//        Log.d("TESSS", name);
+//        Log.d("TESSS", notelp);
+//        contactHandler.addContact(new Contact(name, notelp));
+//        Log.d("TESS", "BERHASIL");
+//        contactArrayList = contactHandler.getAllContacts();
+//        Log.d("TESS", "BERHASIL");
+//        adapterContact.notifyDataSetChanged();
+//
+//        for (Contact contact : contactArrayList) {
+//            String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp();
+//            Log.d("DATA :   ", baris);
+//        }
+//    }
 
-        contactArrayList = contactHandler.getAllContacts();
-
-        adapterContact.notifyDataSetChanged();
-    }
-
-    public void clickBtnAddMember(){
+    public void clickBtnAddMember() {
         btnAddMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, addMember.class);
+                Intent intent = new Intent(MainActivity.this, addMember.class);
 //                intent.putExtra("contactArraylist", contactArrayList);
                 startActivity(intent);
+                intent.notify();
             }
         });
     }
