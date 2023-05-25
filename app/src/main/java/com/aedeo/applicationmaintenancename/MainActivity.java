@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Contact> contactArrayList;
 
     private ContactHandler contactHandler;
-    Integer countRowsdb;
+//    Integer countRowsdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
         contactHandler = new ContactHandler(MainActivity.this);
         Log.d("ADD", "TAMBAH DATA");
 
-        countRowsdb = contactHandler.getContactsCount();
-        Log.d("DB COUNT", countRowsdb.toString());
+//        countRowsdb = contactHandler.getContactsCount();
+//        Log.d("DB COUNT", countRowsdb.toString());
 
 //        tambahkan data contact
 //        contactHandler.addContact(new Contact("John", "083472385473"));
