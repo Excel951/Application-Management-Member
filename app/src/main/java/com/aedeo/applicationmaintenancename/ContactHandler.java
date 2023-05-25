@@ -89,7 +89,6 @@ public class ContactHandler extends SQLiteOpenHelper {
             do {
                 Contact contact = new Contact();  // declare class contact baru
 
-//                contact.setId(Integer.valueOf(cursor.getString(0)));   // set id
                 contact.setId(cursor.getInt(0));        // set id
                 contact.setNama(cursor.getString(1));   // set nama contact
                 contact.setNoHp(cursor.getString(2));   // set no hp contact

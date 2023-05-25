@@ -18,17 +18,12 @@ public class addMember extends AppCompatActivity {
     private EditText editTextAddName, editTextAddNum;
     ArrayList<Contact> contactArrayList;
     ContactHandler contactHandler;
-
     Context notif;
-
-//    Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
 
-//        context = new MainActivity();
         btnAddName = (Button) findViewById(R.id.btnAddName);
         btnCancelAddMember = (Button) findViewById(R.id.btnCancelAddMember);
         editTextAddName = (EditText) findViewById(R.id.editTextAddName);
@@ -38,17 +33,9 @@ public class addMember extends AppCompatActivity {
         contactHandler = new ContactHandler(addMember.this);
         contactArrayList = contactHandler.getAllContacts();
 
-//        contactArrayList = (ArrayList<Contact>) getIntent().getSerializableExtra("contactArraylist");
-
-//        for (Contact contact : contactArrayList) {
-//            String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp();
-//            Log.d("DATA :   ", baris);
-//        }
-
         setBtnCancelAddMember();
         setBtnAddName();
     }
-
     public void setBtnAddName() {
         btnAddName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,16 +49,10 @@ public class addMember extends AppCompatActivity {
                     Toast warning = Toast.makeText(notif, text, Toast.LENGTH_SHORT);
                     warning.show();
                 }
-//                contactArrayList = contactHandler.getAllContacts();
-//                for (Contact contact : contactArrayList) {
-//                    String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp();
-//                    Log.d("DATA :   ", baris);
-//                }
                 finish();
             }
         });
     }
-
     public void setBtnCancelAddMember() {
         btnCancelAddMember.setOnClickListener(new View.OnClickListener() {
             @Override

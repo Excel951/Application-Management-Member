@@ -34,7 +34,7 @@ public class modifyMember extends AppCompatActivity {
 
         editTextUpdateName.setText(item.getNama());
         editTextUpdateNum.setText(item.getNoHp());
-//
+
         setBtnUpdateMember();
         setBtnDeleteMember();
         setBtnCancelModify();

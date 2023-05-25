@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -50,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         adapterContact = new AdapterContact(MainActivity.this, contactArrayList);
         listViewMember.setAdapter(adapterContact);
 
-//        listViewMember.setOnItemLongClickListener(this);
         listViewMember.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -59,10 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         clickBtnAddMember();
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -72,13 +68,11 @@ public class MainActivity extends AppCompatActivity {
         listViewMember.setAdapter(adapterContact);
 
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         contactHandler.db.close();
     }
-
     public void clickBtnAddMember() {
         btnAddMember.setOnClickListener(new View.OnClickListener() {
             @Override
