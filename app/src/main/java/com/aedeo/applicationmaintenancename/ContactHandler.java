@@ -102,6 +102,8 @@ public class ContactHandler extends SQLiteOpenHelper {
 
     public void updateContact(Contact contact) {
         db = this.getWritableDatabase();
+        Log.d("TAG", "updateContact: " + contact.getNama());
+        Log.d("TAG", "updateContact: " + contact.getNoHp());
         ContentValues values = new ContentValues();
 
         values.put(COL_NAME, contact.getNama());

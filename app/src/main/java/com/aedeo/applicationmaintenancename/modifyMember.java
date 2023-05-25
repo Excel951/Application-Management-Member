@@ -44,6 +44,8 @@ public class modifyMember extends AppCompatActivity {
         btnUpdateMember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                item.setNama(editTextUpdateName.getText().toString());
+                item.setNoHp(editTextUpdateNum.getText().toString());
                 contactHandler.updateContact(item);
                 finish();
             }

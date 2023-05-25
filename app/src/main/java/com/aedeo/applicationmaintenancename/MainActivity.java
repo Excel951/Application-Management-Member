@@ -67,26 +67,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-//        contactArrayList = contactHandler.getAllContacts();
-//        String name = String.valueOf(getIntent().getSerializableExtra("nama"));
-//        String notelp = String.valueOf(getIntent().getSerializableExtra("noTelp"));
-//
-//        Log.d("TESSS", name);
-//        Log.d("TESSS", notelp);
-//        contactHandler.addContact(new Contact(name, notelp));
-//        Log.d("TESS", "BERHASIL");
-//        contactArrayList = contactHandler.getAllContacts();
-//        Log.d("TESS", "BERHASIL");
-//        adapterContact.notifyDataSetChanged();
-
         contactArrayList = contactHandler.getAllContacts();
         adapterContact = new AdapterContact(MainActivity.this, contactArrayList);
         listViewMember.setAdapter(adapterContact);
 
-//        for (Contact contact : contactArrayList) {
-//            String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp() + " aasdajdsh ";
-//            Log.d("DATA :   ", baris);
-//        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contactHandler.db.close();
     }
 
     public void clickBtnAddMember() {
@@ -94,14 +84,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, addMember.class);
-//                intent.putExtra("contactArraylist", contactArrayList);
                 startActivity(intent);
             }
         });
     }
 
-//    @Override
-//    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-//        return false;
-//    }
 }
