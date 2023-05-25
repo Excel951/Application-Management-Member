@@ -5,19 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".modifyMember">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/editTextUpdateName"
+        android:text="@string/name" />
 
     <EditText
         android:id="@+id/editTextUpdateName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:ems="10" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/editTextUpdateNum"
+        android:text="@string/telephone_number" />
 
     <EditText
         android:id="@+id/editTextUpdateNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:ems="10" />
 
     <LinearLayout
@@ -31,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/blue_theme"
             android:text="@string/update_member"
             android:textAllCaps="false" />
 
@@ -39,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/red_theme"
             android:text="@string/delete_member"
             android:textAllCaps="false" />
 
@@ -49,7 +64,8 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Cancel"
+        android:backgroundTint="@color/red_theme"
+        android:text="@string/cancel"
         android:textAllCaps="false" />
 
 </LinearLayout>

@@ -31,8 +31,9 @@ public class AdapterContact extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
-        return contactArrayList.get(i);
+    public Contact getItem(int i) {
+        Contact contact = contactArrayList.get(i);
+        return contact;
     }
 
     @Override

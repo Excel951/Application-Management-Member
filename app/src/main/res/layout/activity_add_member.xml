@@ -8,29 +8,43 @@
     android:padding="20dp"
     tools:context=".addMember">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/editTextAddName"
+        android:text="@string/name" />
+
     <EditText
         android:id="@+id/editTextAddName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Enter name...">
+        android:hint="@string/enter_name">
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/editTextAddNum"
+        android:text="@string/telephone_number" />
 
     <EditText
         android:id="@+id/editTextAddNum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:hint="Enter Telephone Number..." />
+        android:hint="@string/enter_telephone_number" />
 
     <Button
         android:id="@+id/btnAddName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Add"
+        android:backgroundTint="@color/blue_theme"
+        android:text="@string/add"
         android:textAllCaps="false" />
 
     <Button
@@ -38,7 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Cancel"
+        android:backgroundTint="@color/red_theme"
+        android:text="@string/cancel"
         android:textAllCaps="false" />
 
 </LinearLayout>

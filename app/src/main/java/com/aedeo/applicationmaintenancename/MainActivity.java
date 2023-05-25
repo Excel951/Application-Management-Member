@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Contact> contactArrayList;
 
     private ContactHandler contactHandler;
+    Integer countRowsdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         contactHandler = new ContactHandler(MainActivity.this);
         Log.d("ADD", "TAMBAH DATA");
 
+        countRowsdb = contactHandler.getContactsCount();
+        Log.d("DB COUNT", countRowsdb.toString());
+
 //        tambahkan data contact
 //        contactHandler.addContact(new Contact("John", "083472385473"));
 //        contactHandler.addContact(new Contact("Mawar", "083472236423"));
@@ -45,14 +50,24 @@ public class MainActivity extends AppCompatActivity {
         adapterContact = new AdapterContact(MainActivity.this, contactArrayList);
         listViewMember.setAdapter(adapterContact);
 
+//        listViewMember.setOnItemLongClickListener(this);
+        listViewMember.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, modifyMember.class);
+                intent.putExtra("id", String.valueOf(id));
+                startActivity(intent);
+            }
+        });
+
         clickBtnAddMember();
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-////        contactArrayList = contactHandler.getAllContacts();
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+//        contactArrayList = contactHandler.getAllContacts();
 //        String name = String.valueOf(getIntent().getSerializableExtra("nama"));
 //        String notelp = String.valueOf(getIntent().getSerializableExtra("noTelp"));
 //
@@ -63,12 +78,16 @@ public class MainActivity extends AppCompatActivity {
 //        contactArrayList = contactHandler.getAllContacts();
 //        Log.d("TESS", "BERHASIL");
 //        adapterContact.notifyDataSetChanged();
-//
+
+        contactArrayList = contactHandler.getAllContacts();
+        adapterContact = new AdapterContact(MainActivity.this, contactArrayList);
+        listViewMember.setAdapter(adapterContact);
+
 //        for (Contact contact : contactArrayList) {
-//            String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp();
+//            String baris = contact.getId() + " - " + contact.getNama() + " - " + contact.getNoHp() + " aasdajdsh ";
 //            Log.d("DATA :   ", baris);
 //        }
-//    }
+    }
 
     public void clickBtnAddMember() {
         btnAddMember.setOnClickListener(new View.OnClickListener() {
@@ -77,8 +96,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, addMember.class);
 //                intent.putExtra("contactArraylist", contactArrayList);
                 startActivity(intent);
-                intent.notify();
             }
         });
     }
+
+//    @Override
+//    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//        return false;
+//    }
 }
